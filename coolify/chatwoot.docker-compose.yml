@@ -1,0 +1,57 @@
+version: '3'
+services:
+  chatwoot-postgres:
+    image: 'postgres:15'
+    volumes:
+      - 'chatwoot-postgres-data:/var/lib/postgresql/data'
+    restart: always
+    environment:
+      POSTGRES_USER: chatwoot
+      POSTGRES_PASSWORD: ksHAFGjvmkjFUNpaYkUZe4t32WPwHMZc
+      POSTGRES_DB: production
+  chatwoot-redis:
+    image: 'redis:alpine'
+    command: 'redis-server --requirepass xYP7wpZxAnwRCk4ZnmFizTDUaMbJjgrk'
+    volumes:
+      - 'chatwoot-redis-data:/data'
+    restart: always
+  chatwoot-web:
+    image: 'chatwoot/chatwoot:v3.3.1'
+    restart: always
+    environment:
+      RAILS_ENV: production
+      RAILS_LOG_TO_STDOUT: 'true'
+      SECRET_KEY_BASE: H8rUsi8pD47cztrUB7jycMGcsczW6Nh4
+      POSTGRES_HOST: chatwoot-postgres
+      POSTGRES_DATABASE: chatwoot
+      POSTGRES_USERNAME: chatwoot
+      POSTGRES_PASSWORD: ksHAFGjvmkjFUNpaYkUZe4t32WPwHMZc
+      REDIS_URL: 'redis://chatwoot-redis-cssoow4:6379'
+      REDIS_PASSWORD: xYP7wpZxAnwRCk4ZnmFizTDUaMbJjgrk
+      INSTALLATION_ENV: production
+    ports:
+      - '3000:3000'
+    depends_on:
+      - chatwoot-postgres
+      - chatwoot-redis
+  chatwoot-worker:
+    image: 'chatwoot/chatwoot:v3.3.1'
+    restart: always
+    environment:
+      RAILS_ENV: production
+      RAILS_LOG_TO_STDOUT: 'true'
+      FRONTEND_URL: $SERVICE_FQDN_CHATWOOT
+      SECRET_KEY_BASE: H8rUsi8pD47cztrUB7jycMGcsczW6Nh4
+      POSTGRES_HOST: chatwoot-postgres
+      POSTGRES_DATABASE: chatwoot
+      POSTGRES_USERNAME: chatwoot
+      POSTGRES_PASSWORD: ksHAFGjvmkjFUNpaYkUZe4t32WPwHMZc
+      REDIS_URL: 'redis://chatwoot-redis-cssoow4:6379'
+      REDIS_PASSWORD: xYP7wpZxAnwRCk4ZnmFizTDUaMbJjgrk
+      INSTALLATION_ENV: production
+    depends_on:
+      - chatwoot-postgres
+      - chatwoot-redis
+volumes:
+  chatwoot-postgres-data: null
+  chatwoot-redis-data: null
