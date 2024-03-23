@@ -1,39 +1,63 @@
 <script>
-	import PostsList from '$lib/components/PostsList.svelte';
+	import Fab from '$lib/components/Fab.svelte';
+	import CryptoCard from '$lib/components/CryptoCard.svelte';
+	import { btc, eth, formatter } from '$lib/api/crypto';
+	import { goto } from '$app/navigation';
 
-	/** @type {import('./$types').PageData} */
-	export let data;
+	const userAddrList = [
+		{
+			type: 'btc',
+			addr: 'bc1qrajyl477r4newfe3f2526h3wjp2a0xeduk66nq'
+		},
+		{
+			type: 'eth',
+			addr: '0xd626920fb8ebb6B7A501f0FF9a382825887dfD39'
+		}
+	];
 
-	$: isFirstPage = data.page === 1;
-	$: hasNextPage = data.posts[data.posts.length - 1]?.previous;
+	const cryptos = Promise.all([
+		...userAddrList.filter((v) => v.type === 'btc').map((s) => btc(s.addr)),
+		...userAddrList.filter((v) => v.type === 'eth').map((s) => eth(s.addr))
+	]);
+
+	const addAddrs = async () => {
+		goto('/addWallet');
+	};
 </script>
 
 <section class="content">
-	<header class="header">
-		<h1 class="title">Blog Posts</h1>
-	</header>
-
-	<div class="posts-section">
-		<PostsList posts={data.posts} />
-	</div>
-
-	<!-- pagination -->
-	<div class="pagination">
-		{#if !isFirstPage}
-			<a href={`/posts/${data.page - 1}`} data-sveltekit-prefetch class="link">Previous</a>
-		{:else}
-			<div />
-		{/if}
-
-		{#if hasNextPage}
-			<a href={`/posts/${data.page + 1}`} data-sveltekit-prefetch class="link">Next</a>
-		{/if}
-	</div>
+	<Fab label="add wallet" icon="+" action={async () => addAddrs()} />
+	{#await cryptos}
+		<p>Fetching data...</p>
+	{:then data}
+		<div class="cards">
+			<p class="totalValue">
+				{formatter.format(
+					data
+						.map((e) => {
+							return e.value;
+						})
+						.reduce((a, v) => a + v)
+				)}
+			</p>
+			{#each data as crypto}
+				<CryptoCard {crypto} />
+			{/each}
+		</div>
+	{:catch error}
+		<p>Unable to fetch - {{ error }}</p>
+	{/await}
 </section>
 
 <style>
 	.header {
 		padding-top: 1rem;
+	}
+
+	.totalValue {
+		text-align: center;
+		font-size: 48px;
+		font-weight: bold;
 	}
 
 	.title {
@@ -48,29 +72,16 @@
 		}
 	}
 
-	.posts-section {
-		margin-top: 1rem; /* mt-16 */
-	}
+	.cards {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr); /* Two columns by default */
+		gap: var(--size-4);
+		margin: 0;
+		padding: 0;
+		list-style: none;
 
-	@media (min-width: 640px) {
-		.posts-section {
-			margin-top: 2rem; /* sm:mt-20 */
+		@media screen and (max-width: 768px) {
+			grid-template-columns: 1fr; /* One column on small screens */
 		}
-	}
-
-	.pagination {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		padding-top: 4rem; /* pt-16 */
-		padding-bottom: 2rem; /* pb-8 */
-	}
-
-	.link {
-		display: flex;
-		align-items: center;
-		gap: 0.5rem;
-		font-weight: 500;
-		color: #3b82f6;
 	}
 </style>

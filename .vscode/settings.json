@@ -1,10 +1,27 @@
 {
-  "cssvar.files": [
-    "./src/lib/style/pollen.css",
-    "./src/lib/style/settings.css"
-  ],
-  "cssvar.disableSort": true,
-  "cssvar.enableColors": true,
-  "cssvar.extensions": ["svelte", "css", "postcss", "scss"],
-  "cssvar.postcssPlugins": ["postcss-nesting"]
+	"cssvar.files": ["./src/lib/style/pollen.css", "./src/lib/style/settings.css"],
+	"cssvar.disableSort": true,
+	"cssvar.enableColors": true,
+	"cssvar.extensions": ["svelte", "css", "postcss", "scss"],
+	"cssvar.postcssPlugins": ["postcss-nesting"],
+	"workbench.colorCustomizations": {
+		"activityBar.activeBackground": "#70a6bd",
+		"activityBar.background": "#70a6bd",
+		"activityBar.foreground": "#15202b",
+		"activityBar.inactiveForeground": "#15202b99",
+		"activityBarBadge.background": "#994680",
+		"activityBarBadge.foreground": "#e7e7e7",
+		"commandCenter.border": "#e7e7e799",
+		"sash.hoverBorder": "#70a6bd",
+		"statusBar.background": "#4f90ab",
+		"statusBar.foreground": "#e7e7e7",
+		"statusBarItem.hoverBackground": "#70a6bd",
+		"statusBarItem.remoteBackground": "#4f90ab",
+		"statusBarItem.remoteForeground": "#e7e7e7",
+		"titleBar.activeBackground": "#4f90ab",
+		"titleBar.activeForeground": "#e7e7e7",
+		"titleBar.inactiveBackground": "#4f90ab99",
+		"titleBar.inactiveForeground": "#e7e7e799"
+	},
+	"peacock.color": "#4f90ab"
 }
