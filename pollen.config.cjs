@@ -77,7 +77,7 @@ module.exports = defineConfig((pollen) => {
 				'primary-200': 'hsl(139, 66%, 85%)',
 				'primary-300': 'hsl(141, 70%, 72%)',
 				'primary-400': 'hsl(143, 62%, 57%)',
-				'primary-500': '#3a7fa3',
+				'primary-500': '#ffaaff',
 				'primary-600': 'hsl(143, 100%, 31%)',
 				'primary-700': 'hsl(155, 100%, 23%)',
 				'primary-800': 'hsl(166, 100%, 17%)',

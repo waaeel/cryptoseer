@@ -1,9 +1,9 @@
 <script lang="ts">
 	export let productInfo = {
-		name: 'osterman',
+		name: 'marduk',
 		description: 'watch your crypto'
 	};
-	import logo from '$lib/assets/logo.jpeg';
+	import logo from '$lib/assets/logo.png';
 </script>
 
 <section class="content center">

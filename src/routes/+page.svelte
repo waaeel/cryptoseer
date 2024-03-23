@@ -26,20 +26,22 @@
 </script>
 
 <section class="content">
-	<Fab label="add wallet" icon="+" action={async () => addAddrs()} />
+	<Fab icon="+" action={async () => addAddrs()}>
+		<p>add <strong>public</strong> key</p>
+	</Fab>
 	{#await cryptos}
 		<p>Fetching data...</p>
 	{:then data}
+		<p class="totalValue">
+			{formatter.format(
+				data
+					.map((e) => {
+						return e.value;
+					})
+					.reduce((a, v) => a + v)
+			)}
+		</p>
 		<div class="cards">
-			<p class="totalValue">
-				{formatter.format(
-					data
-						.map((e) => {
-							return e.value;
-						})
-						.reduce((a, v) => a + v)
-				)}
-			</p>
 			{#each data as crypto}
 				<CryptoCard {crypto} />
 			{/each}

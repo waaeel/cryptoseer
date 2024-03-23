@@ -1,14 +1,13 @@
 <script>
-	export let label = '';
 	export let icon = '';
 	export let action = () => {};
 </script>
 
-<button class="fab" on:click={action} aria-label={label}>
+<button class="fab" on:click={action}>
 	{#if icon}
 		{icon}
 	{/if}
-	{label}
+	<slot />
 </button>
 
 <style>
@@ -29,6 +28,7 @@
 		cursor: pointer;
 		transition: background-color 0.3s;
 		font: var(--text-lg); /* Adjust based on your design preference */
+		width: 60%;
 	}
 	.fab:hover {
 		background-color: var(--color-primary);

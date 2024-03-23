@@ -23,7 +23,8 @@ export const btc = async (addr) => {
 				balance: balance,
 				type: 'btc',
 				value: Math.floor(price * balance),
-				usd: formatter.format(Math.floor(price * balance))
+				usd: formatter.format(Math.floor(price * balance)),
+				addr: addr
 			};
 		})
 		.catch(function (err) {
@@ -40,7 +41,8 @@ export const eth = async (addr) => {
 				balance: balance,
 				type: 'eth',
 				value: Math.floor(data.ETH.price.rate * balance),
-				usd: formatter.format(Math.floor(data.ETH.price.rate * balance))
+				usd: formatter.format(Math.floor(data.ETH.price.rate * balance)),
+				addr: addr
 			};
 		})
 		.catch(function (err) {
