@@ -6,7 +6,7 @@
 	import logo from '$lib/assets/logo.png';
 </script>
 
-<section class="content center">
+<section class="center">
 	<header class="header">
 		<div class="logo-wrapper">
 			<a href="/"><img class="logo" src={logo} alt=" Icon" /></a>
@@ -19,12 +19,14 @@
 </section>
 
 <style lang="postcss">
+	section {
+		padding: var(--size-4);
+	}
 	.header {
 		display: -ms-flexbox;
 		display: flex;
 		-ms-flex-direction: row;
 		flex-direction: row;
-		margin-bottom: 16px;
 		-ms-flex-align: center;
 		align-items: center;
 		font: var(--text-sm);
@@ -34,8 +36,7 @@
 		}
 
 		@media (max-width: 768px) {
-			margin-top: 32px;
-			margin-bottom: 16px;
+			margin-top: var(--size-2);
 		}
 	}
 

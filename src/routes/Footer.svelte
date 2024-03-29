@@ -7,20 +7,8 @@
 		<ul>
 			<li><a href="/privacy">🔐 Privacy</a></li>
 			<li><a href="/legal">📜 Legal Notice</a></li>
-			<li><a href="mailto:info@dinweldik.com">📩 info@dinweldik.com</a></li>
 		</ul>
 	</nav>
-	<!-- 	<nav>
-		<ul>
-			<li>{getRandomEmoji()}</li>
-			<li>{getRandomEmoji()}</li>
-			<li>{getRandomEmoji()}</li>
-		</ul>
-	</nav> -->
-	<small>
-		Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-		the industry's standard dummy text ever since the 1500s.
-	</small>
 </footer>
 
 <style lang="postcss">
@@ -33,7 +21,7 @@
 		padding: var(--size-content-py) var(--size-content-px);
 	}
 	nav {
-		margin-block: var(--size-20);
+		margin-top: var(--size-20);
 	}
 	ul {
 		list-style: none;

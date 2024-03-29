@@ -18,7 +18,6 @@
 	{:else}
 		<slot />
 	{/if}
-	<!-- 	<Footer /> -->
 </main>
 
 <style lang="postcss">

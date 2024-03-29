@@ -52,14 +52,11 @@
 </section>
 
 <style>
-	.header {
-		padding-top: 1rem;
-	}
-
 	.totalValue {
 		text-align: center;
 		font-size: 48px;
 		font-weight: bold;
+		margin-bottom: var(--size-6);
 	}
 
 	.title {
