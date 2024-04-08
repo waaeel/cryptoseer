@@ -1,17 +1,17 @@
 <section class="content">
 	<h1>GDPR Policy</h1>
 	<p>
-		<strong>marduk.xyz</strong>, a product of <a href="https://dinweldik.com">dinweldik e.U</a>, is
+		<strong>pulus.xyz</strong>, a product of <a href="https://dinweldik.com">dinweldik e.U</a>, is
 		committed to protecting the privacy and security of your personal data. This GDPR policy
 		explains how we collect, use, and share your personal data when you use our website and any
 		software products we offer.
 	</p>
 	<h2>Personal Data We Collect</h2>
 	<p>
-		When you create an account with <strong>marduk.xyz</strong> using Google Sign-In, we collect
-		your email, profile picture, and name from your Google Account. If you purchase a software
-		product from us, we may also collect payment information. We may also collect data about your
-		use of our website and software products, such as IP address and device information. We use
+		When you create an account with <strong>pulus.xyz</strong> using Google Sign-In, we collect your
+		email, profile picture, and name from your Google Account. If you purchase a software product
+		from us, we may also collect payment information. We may also collect data about your use of our
+		website and software products, such as IP address and device information. We use
 		<a href="https://plausible.io">plausible.io</a> to track web traffic on our website, and we use Google
 		for authentication purposes.
 	</p>

@@ -1,6 +1,6 @@
 <script lang="ts">
 	export let productInfo = {
-		name: 'marduk',
+		name: 'pulus',
 		description: 'watch your crypto'
 	};
 	import logo from '$lib/assets/logo.png';

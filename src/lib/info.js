@@ -5,16 +5,16 @@ import logo from '$lib/assets/logo.png';
 // feel free to remove this file.
 
 // URL of your website
-export const website = 'https://marduk.xyz';
+export const website = 'https://pulus.xyz';
 
-export const name = `marduk`;
+export const name = `pulus`;
 
 // Used for the landing page & footer of posts
 export const avatar = logo;
 // Your social usernames, empty strings won't be used.
 // For sake of the live demo, I'm using `username/repo` for github,
 // but you can replace with just your username.
-export const github = 'dinweldik/marduk';
+export const github = 'dinweldik/pulus';
 export const twitter = 'dinweldik';
 export const linkedin = '';
 export const instagram = '';
