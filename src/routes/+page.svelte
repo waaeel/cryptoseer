@@ -3,22 +3,13 @@
 	import CryptoCard from '$lib/components/CryptoCard.svelte';
 	import { btc, eth, formatter } from '$lib/api/crypto';
 	import { goto } from '$app/navigation';
-
-	const userAddrList = [
-		{
-			type: 'btc',
-			addr: 'bc1qrajyl477r4newfe3f2526h3wjp2a0xeduk66nq'
-		},
-		{
-			type: 'eth',
-			addr: '0xd626920fb8ebb6B7A501f0FF9a382825887dfD39'
-		}
-	];
-
-	const cryptos = Promise.all([
-		...userAddrList.filter((v) => v.type === 'btc').map((s) => btc(s.addr)),
-		...userAddrList.filter((v) => v.type === 'eth').map((s) => eth(s.addr))
-	]);
+	import { browser } from '$app/environment';
+	let userAddrList = [];
+	if (browser) {
+		userAddrList = localStorage.getItem('wallets')
+			? JSON.parse(localStorage.getItem('wallets'))
+			: [];
+	}
 
 	const addAddrs = async () => {
 		goto('/addWallet');
@@ -29,26 +20,35 @@
 	<Fab icon="+" action={async () => addAddrs()}>
 		<p>add <strong>public</strong> key</p>
 	</Fab>
-	{#await cryptos}
-		<p>Fetching data...</p>
-	{:then data}
-		<p class="totalValue">
-			{formatter.format(
-				data
-					.map((e) => {
-						return e.value;
-					})
-					.reduce((a, v) => a + v)
-			)}
-		</p>
-		<div class="cards">
-			{#each data as crypto}
-				<CryptoCard {crypto} />
-			{/each}
-		</div>
-	{:catch error}
-		<p>Unable to fetch - {{ error }}</p>
-	{/await}
+	{#if userAddrList.length > 0}
+		{#await Promise.all([...userAddrList
+				.filter((v) => v.type === 'btc')
+				.map((s) => btc(s.addr)), ...userAddrList
+				.filter((v) => v.type === 'eth')
+				.map((s) => eth(s.addr))])}
+			<p>Fetching data...</p>
+		{:then data}
+			<p class="totalValue">
+				{formatter.format(
+					data
+						.map((e) => {
+							return e.value;
+						})
+						.reduce((a, v) => a + v)
+				)}
+			</p>
+			<div class="cards">
+				{#each data as crypto}
+					<CryptoCard {crypto} />
+				{/each}
+			</div>
+		{:catch error}
+			<p>Unable to fetch - {{ error }}</p>
+		{/await}
+	{/if}
+	{#if userAddrList.length === 0}
+		<h2 class="title">No Wallets</h2>
+	{/if}
 </section>
 
 <style>
