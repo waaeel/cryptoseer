@@ -1,12 +1,8 @@
 {
 	"rewrites": [
 		{
-			"source": "/stats/js/script.js",
+			"source": "/js/script.js",
 			"destination": "https://plausible.dinweldik.com/js/script.js"
-		},
-		{
-			"source": "/stats/api/event",
-			"destination": "https://plausible.dinweldik.com/api/event"
 		}
 	]
 }
