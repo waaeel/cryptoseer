@@ -1,6 +1,6 @@
 // vite.config.js
 import { sveltekit } from '@sveltejs/kit/vite';
-import adapter from '@sveltejs/adapter-node';
+import adapter from '@sveltejs/adapter-vercel';
 import preprocess from 'svelte-preprocess';
 
 /** @type {import('vite').UserConfig} */
@@ -19,7 +19,9 @@ const config = {
 	],
 
 	kit: {
-		adapter: adapter()
+		adapter: adapter({
+			regions: ['arn1']
+		})
 	}
 };
 
