@@ -17,7 +17,7 @@
 		// Save updated entries back to localStorage
 		localStorage.setItem('wallets', JSON.stringify(existingEntries));
 
-		//goto('/');
+		goto('/');
 	};
 </script>
 

@@ -1,14 +1,31 @@
 <script>
 	export let crypto;
+
+	const remove = () => {
+		console.log(crypto);
+		localStorage.setItem(
+			'wallets',
+			JSON.stringify(
+				JSON.parse(localStorage.getItem('wallets')).filter((v) => v.addr !== crypto.addr)
+			)
+		);
+		// TODO refactor this
+		window.location.reload();
+	};
 </script>
 
 <div class="card">
-	<div class="balance">
-		<h1><strong>{crypto.type}</strong>{crypto.balance}</h1>
-		<h2>{crypto.usd}</h2>
+	<div class="card-content">
+		<div class="balance">
+			<h1><strong>{crypto.type}</strong>{crypto.balance}</h1>
+			<h2>{crypto.usd}</h2>
+		</div>
+		<div class="info">
+			<h2>{crypto.addr}</h2>
+		</div>
 	</div>
-	<div class="info">
-		<h2>{crypto.addr}</h2>
+	<div class="footer">
+		<button on:click={remove}>delete</button>
 	</div>
 </div>
 
@@ -17,6 +34,14 @@
 		border: 1px solid var(--color-primary);
 		padding: var(--size-4);
 		border-radius: var(--size-2);
+	}
+	.footer {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		margin-top: var(--size-4);
+	}
+	.card-content {
 		display: grid;
 		grid-template-columns: 2fr 1fr;
 		cursor: pointer;
