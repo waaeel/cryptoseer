@@ -1,6 +1,6 @@
 <script>
 	import { goto } from '$app/navigation';
-	import { browser } from '$app/environment';
+
 	import Select from '$lib/components/Select.svelte';
 
 	const add = (event) => {
