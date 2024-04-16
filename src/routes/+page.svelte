@@ -28,6 +28,7 @@
 				.map((s) => eth(s.addr))])}
 			<p>Fetching data...</p>
 		{:then data}
+			<h1>Total value:</h1>
 			<p class="totalValue">
 				{formatter.format(
 					data
@@ -52,6 +53,9 @@
 </section>
 
 <style>
+	h1 {
+		text-align: center;
+	}
 	.totalValue {
 		text-align: center;
 		font-size: 48px;

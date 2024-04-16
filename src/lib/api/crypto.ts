@@ -1,11 +1,11 @@
 export const formatter = new Intl.NumberFormat('en-US', {
 	style: 'currency',
-	currency: 'USD'
+	currency: 'EUR'
 });
 
 export const btc = async (addr) => {
 	const price = await fetch(
-		`https://min-api.cryptocompare.com/data/generateAvg?fsym=BTC&tsym=USD&e=kraken`
+		`https://min-api.cryptocompare.com/data/generateAvg?fsym=BTC&tsym=EUR&e=kraken`
 	)
 		.then(async (response) => {
 			const data = await response.json();
@@ -23,7 +23,7 @@ export const btc = async (addr) => {
 				balance: balance,
 				type: 'btc',
 				value: Math.floor(price * balance),
-				usd: formatter.format(Math.floor(price * balance)),
+				eur: formatter.format(Math.floor(price * balance)),
 				addr: addr
 			};
 		})
@@ -33,6 +33,16 @@ export const btc = async (addr) => {
 };
 
 export const eth = async (addr) => {
+	const price = await fetch(
+		`https://min-api.cryptocompare.com/data/generateAvg?fsym=ETH&tsym=EUR&e=kraken`
+	)
+		.then(async (response) => {
+			const data = await response.json();
+			return data.RAW.PRICE;
+		})
+		.catch(function (err) {
+			console.log('Unable to fetch -', err);
+		});
 	return fetch(`https://api.ethplorer.io/getAddressInfo/${addr}/?apiKey=freekey`)
 		.then(async (response) => {
 			const data = await response.json();
@@ -40,8 +50,8 @@ export const eth = async (addr) => {
 			return {
 				balance: balance,
 				type: 'eth',
-				value: Math.floor(data.ETH.price.rate * balance),
-				usd: formatter.format(Math.floor(data.ETH.price.rate * balance)),
+				value: Math.floor(price * balance),
+				eur: formatter.format(Math.floor(price * balance)),
 				addr: addr
 			};
 		})

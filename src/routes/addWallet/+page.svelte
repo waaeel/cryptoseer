@@ -1,6 +1,5 @@
 <script>
 	import { goto } from '$app/navigation';
-	import Select from '$lib/components/Select.svelte';
 	import ChipSelect from '$lib/components/ChipSelect.svelte';
 	import Dinput from '$lib/components/Dinput.svelte';
 	import Fab from '$lib/components/Fab.svelte';
@@ -31,7 +30,7 @@
 </script>
 
 <section class="content">
-	<h1>Add Wallet Adress (public key)</h1>
+	<h1>Add wallet to watch</h1>
 	<form on:submit|preventDefault={add}>
 		<ChipSelect
 			options={cryptoOptions}
@@ -44,3 +43,9 @@
 		<Fab label="add" icon="💾" isSubmit={true} />
 	</form>
 </section>
+
+<style>
+	h1 {
+		text-align: center;
+	}
+</style>

@@ -18,7 +18,7 @@
 	<div class="card-content">
 		<div class="balance">
 			<h1><strong>{crypto.type}</strong>{crypto.balance}</h1>
-			<h2>{crypto.usd}</h2>
+			<h2>{crypto.eur}</h2>
 			<button class="remove-icon" on:click={remove}>remove</button>
 		</div>
 		<div class="info">
@@ -28,6 +28,9 @@
 </div>
 
 <style>
+	strong {
+		margin-right: var(--size-2);
+	}
 	.card {
 		position: relative;
 		border: 1px solid var(--color-primary);
