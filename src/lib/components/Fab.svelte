@@ -1,14 +1,25 @@
 <script>
+	export let label = '';
 	export let icon = '';
 	export let action = () => {};
+	export let isSubmit = false;
 </script>
 
-<button class="fab" on:click={action}>
-	{#if icon}
-		{icon}
-	{/if}
-	<slot />
-</button>
+{#if isSubmit}
+	<button type="submit" class="fab" aria-label={label}>
+		{#if icon}
+			{icon}
+		{/if}
+		{label}
+	</button>
+{:else}
+	<button class="fab" on:click={action} aria-label={label}>
+		{#if icon}
+			{icon}
+		{/if}
+		<slot />
+	</button>
+{/if}
 
 <style>
 	.fab {
@@ -17,7 +28,7 @@
 		bottom: 20px;
 		transform: translateX(-50%); /* Center it horizontally */
 		background-color: var(--color-primary);
-		color: white;
+		color: black;
 		border: none;
 		padding: 12px 24px;
 		border-radius: 28px; /* Adjust based on your design preference */
@@ -28,6 +39,7 @@
 		cursor: pointer;
 		transition: background-color 0.3s;
 		font: var(--text-lg); /* Adjust based on your design preference */
+		z-index: 1000;
 		width: 60%;
 	}
 	.fab:hover {

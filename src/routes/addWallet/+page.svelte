@@ -1,7 +1,16 @@
 <script>
 	import { goto } from '$app/navigation';
-
 	import Select from '$lib/components/Select.svelte';
+	import ChipSelect from '$lib/components/ChipSelect.svelte';
+	import Dinput from '$lib/components/Dinput.svelte';
+	import Fab from '$lib/components/Fab.svelte';
+
+	export const cryptoOptions = [
+		{ label: 'bitcoin', value: 'btc' },
+		{ label: 'ethereum', value: 'eth' }
+	];
+
+	let selectedCrypto = cryptoOptions[0].value;
 
 	const add = (event) => {
 		const formData = new FormData(event.target);
@@ -22,9 +31,16 @@
 </script>
 
 <section class="content">
+	<h1>Add Wallet Adress (public key)</h1>
 	<form on:submit|preventDefault={add}>
-		<Select options={['btc', 'eth']} />
-		<input type="text" name="addr" />
-		<button type="submit">add</button>
+		<ChipSelect
+			options={cryptoOptions}
+			on:change={(e) => (selectedCrypto = e.detail)}
+			selectedValue={selectedCrypto}
+			title="crypto"
+		/>
+		<input type="hidden" bind:value={selectedCrypto} name="type" />
+		<Dinput type="text" name="addr" placeholder="public key" />
+		<Fab label="add" icon="💾" isSubmit={true} />
 	</form>
 </section>
