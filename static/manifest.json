@@ -456,14 +456,5 @@
 	"display": "standalone",
 	"scope": "/",
 	"theme_color": "#000000",
-	"shortcuts": [
-		{
-			"name": "Your Lists",
-			"short_name": "lists",
-			"description": "View your lists",
-			"url": "/lists",
-			"icons": [{ "src": "ledger_618.png", "sizes": "618x618" }]
-		}
-	],
-	"description": "the ultimate social media tool for keeping up with all of your favorite online communities."
+	"description": "watch only wallet for BTC and ETH"
 }
