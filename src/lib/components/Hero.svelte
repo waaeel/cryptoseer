@@ -1,7 +1,7 @@
 <script lang="ts">
 	export let productInfo = {
 		name: 'pulus',
-		description: 'watch your crypto'
+		description: 'watch-only wallet'
 	};
 	import logo from '$lib/assets/logo.png';
 </script>
@@ -14,6 +14,7 @@
 		<div class="app__infos">
 			<a href="/"><h1 class="name supertitle">{productInfo.name}</h1></a>
 			<a href="/"><p class="description">{productInfo.description}</p></a>
+			<a href="/"><p class="description">for ₿itcoin and Ξthereum</p></a>
 		</div>
 	</header>
 </section>
