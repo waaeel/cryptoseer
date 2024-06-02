@@ -5,18 +5,20 @@
 <footer>
 	<nav>
 		<ul>
-			<li><a href="/privacy"> * Privacy</a></li>
-			<li><a href="/legal"> * Legal Notice</a></li>
+			<li><a href="/privacy">* Privacy</a></li>
+			<li><a href="/legal">* Legal Notice</a></li>
 		</ul>
 	</nav>
 	<small>
 		Made with ❤️ by <a href="https://dinweldik.com" target="_blank" class="brand">dinweldik.com</a>
 	</small>
 	<small>
-		Your public keys are send to <a href="https://blockchain.info" target="_blank"
-			>blockchain.info</a
-		>
-		and/or <a href="https://ethplorer.io" target="_blank">ethplorer.io</a> to fetch your balance.
+		Your public keys are send to third party APIs like
+		<a href="https://blockchain.info" target="_blank">blockchain.info</a>,
+		<a href="https://ethplorer.io" target="_blank">ethplorer.io</a>,
+		<a href="https://etherscan.io" target="_blank">etherscan.io</a> and
+		<a href="https://blockchair.com" target="_blank">blockchair.com</a>
+		to fetch your balance.
 	</small>
 </footer>
 

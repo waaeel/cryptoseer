@@ -2,15 +2,19 @@
 	export let crypto;
 
 	const remove = () => {
-		console.log(crypto);
-		localStorage.setItem(
-			'wallets',
-			JSON.stringify(
-				JSON.parse(localStorage.getItem('wallets')).filter((v) => v.addr !== crypto.addr)
-			)
-		);
-		// TODO refactor this
-		window.location.reload();
+		if (confirm('Are you sure you want to remove this address?')) {
+			console.log(crypto);
+			localStorage.setItem(
+				'wallets',
+				JSON.stringify(
+					JSON.parse(localStorage.getItem('wallets')).filter((v) => v.addr !== crypto.addr)
+				)
+			);
+			// TODO refactor this
+			window.location.reload();
+		} else {
+			// do nothing
+		}
 	};
 </script>
 
@@ -22,7 +26,14 @@
 			<button class="remove-icon" on:click={remove}>remove</button>
 		</div>
 		<div class="info">
-			<h2>{crypto.addr}</h2>
+			<a
+				href={crypto.type === 'eth'
+					? `https://etherscan.io/address/${crypto.addr}`
+					: `https://blockchair.com/bitcoin/address/${crypto.addr}`}
+				target="_blank"
+			>
+				<h2>{crypto.addr}</h2>
+			</a>
 		</div>
 	</div>
 </div>
