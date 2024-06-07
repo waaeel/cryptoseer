@@ -1,90 +1,70 @@
 <script>
-	import Fab from '$lib/components/Fab.svelte';
 	import CryptoCard from '$lib/components/CryptoCard.svelte';
+	import Placeholder from '$lib/components/Placeholder.svelte'; // Import the Placeholder component
 	import { btc, eth, formatter } from '$lib/api/crypto';
 	import { goto } from '$app/navigation';
 	import { browser } from '$app/environment';
-	let userAddrList = [];
-	if (browser) {
-		userAddrList = localStorage.getItem('wallets')
-			? JSON.parse(localStorage.getItem('wallets'))
-			: [];
-	}
-
-	const addAddrs = async () => {
-		goto('/addWallet');
-	};
 </script>
 
 <section class="content">
-	<Fab icon="+" action={async () => addAddrs()}>
-		<p>add <strong>public</strong> key</p>
-	</Fab>
-	{#if userAddrList.length > 0}
-		{#await Promise.all([...userAddrList
-				.filter((v) => v.type === 'btc')
-				.map((s) => btc(s.addr)), ...userAddrList
-				.filter((v) => v.type === 'eth')
-				.map((s) => eth(s.addr))])}
-			<p>Fetching data...</p>
-		{:then data}
-			<h1>Total value:</h1>
-			<p class="totalValue">
-				{formatter.format(
-					data
-						.map((e) => {
-							return e.value;
-						})
-						.reduce((a, v) => a + v)
-				)}
-			</p>
-			<div class="cards">
-				{#each data as crypto}
-					<CryptoCard {crypto} />
-				{/each}
-			</div>
-		{:catch error}
-			<p>Unable to fetch - {{ error }}</p>
-		{/await}
-	{/if}
-	{#if userAddrList.length === 0}
-		<h2 class="title">No Wallets</h2>
-	{/if}
+	<header>
+		<h1>Welcome to pulus.xyz</h1>
+		<p>
+			Your privacy-friendly watch-only crypto wallet for Bitcoin and Ethereum. No account needed –
+			start monitoring your wallets instantly.
+		</p>
+	</header>
+
+	<section class="features">
+		<h2>Key Features</h2>
+		<ul>
+			<li>
+				🔒 Privacy First: No account required, and your public keys are stored locally in your
+				browser.
+			</li>
+			<li>
+				👁️ Watch-Only: Monitor your Bitcoin and Ethereum wallets without compromising your security.
+			</li>
+			<li>🚀 Easy to Use: Simple and intuitive interface for quick wallet monitoring.</li>
+			<li>💼 Comprehensive: Supports multiple Bitcoin and Ethereum wallets.</li>
+		</ul>
+	</section>
 </section>
 
 <style>
-	h1 {
+	header {
 		text-align: center;
-	}
-	.totalValue {
-		text-align: center;
-		font-size: 48px;
-		font-weight: bold;
 		margin-bottom: var(--size-6);
 	}
 
-	.title {
-		font-size: 2.25rem; /* text-4xl */
-		font-weight: bold; /* font-bold */
-		letter-spacing: -0.025em; /* tracking-tight */
+	h1 {
+		font-size: 2.5rem;
+		font-weight: bold;
+		margin-bottom: var(--size-4);
 	}
 
-	@media (min-width: 640px) {
-		.title {
-			font-size: 3rem; /* sm:text-5xl */
-		}
+	p {
+		font-size: 1.25rem;
+		margin-bottom: var(--size-6);
 	}
 
-	.cards {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr); /* Two columns by default */
-		gap: var(--size-4);
-		margin: 0;
-		padding: 0;
+	.features {
+		margin-bottom: var(--size-6);
+	}
+
+	.features h2 {
+		font-size: 2rem;
+		font-weight: bold;
+		margin-bottom: var(--size-4);
+	}
+
+	.features ul {
 		list-style: none;
+		padding: 0;
+	}
 
-		@media screen and (max-width: 768px) {
-			grid-template-columns: 1fr; /* One column on small screens */
-		}
+	.features li {
+		font-size: 1.25rem;
+		margin-bottom: var(--size-2);
 	}
 </style>
