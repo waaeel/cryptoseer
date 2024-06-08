@@ -14,7 +14,7 @@
 	}
 
 	const addAddrs = async () => {
-		goto('/addWallet');
+		goto('/app/addWallet');
 	};
 </script>
 
