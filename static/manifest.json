@@ -1,7 +1,7 @@
 {
 	"short_name": "pulus",
 	"name": "pulus.xyz",
-	"start_url": "/",
+	"start_url": "/app",
 	"icons": [
 		{
 			"src": "windows11/SmallTile.scale-100.png",
@@ -454,7 +454,7 @@
 	],
 	"background_color": "#000000",
 	"display": "standalone",
-	"scope": "/",
+	"scope": "https://pulus.xyz/app/",
 	"theme_color": "#000000",
 	"description": "watch only wallet for BTC and ETH"
 }
