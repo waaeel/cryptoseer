@@ -1,34 +1,39 @@
-<script>
-	import CryptoCard from '$lib/components/CryptoCard.svelte';
-	import Placeholder from '$lib/components/Placeholder.svelte'; // Import the Placeholder component
-	import { btc, eth, formatter } from '$lib/api/crypto';
-	import { goto } from '$app/navigation';
-	import { browser } from '$app/environment';
-</script>
-
 <section class="content">
 	<header>
-		<h1>Welcome to pulus.xyz</h1>
-		<p>
-			Your privacy-friendly watch-only crypto wallet for Bitcoin and Ethereum. No account needed –
-			start monitoring your wallets instantly.
-		</p>
+		<h1>No account needed – start monitoring your wallets instantly.</h1>
+		<a class="cta-button" href="/app">Get Started</a>
 	</header>
 
-	<section class="features">
-		<h2>Key Features</h2>
-		<ul>
-			<li>
-				🔒 Privacy First: No account required, and your public keys are stored locally in your
-				browser.
-			</li>
-			<li>
-				👁️ Watch-Only: Monitor your Bitcoin and Ethereum wallets without compromising your security.
-			</li>
-			<li>🚀 Easy to Use: Simple and intuitive interface for quick wallet monitoring.</li>
-			<li>💼 Comprehensive: Supports multiple Bitcoin and Ethereum wallets.</li>
-		</ul>
-	</section>
+	<ul class="text-cards">
+		<li>
+			<strong>🔒 Privacy First</strong>
+			<p>No account required, and your public keys are stored locally in your browser.</p>
+		</li>
+		<li>
+			<strong>👁️ Watch-Only</strong>
+			<p>
+				Monitor your Bitcoin and Ethereum wallets without compromising your private keys and
+				security.
+			</p>
+		</li>
+		<li>
+			<strong>🚀 Easy to Use</strong>
+			<p>Simple and intuitive interface for quick wallet monitoring.</p>
+		</li>
+		<li>
+			<strong>💼 Comprehensive</strong>
+			<p>Supports multiple Bitcoin and Ethereum wallets.</p>
+		</li>
+	</ul>
+
+	<div class="center">
+		<h1>How It Works</h1>
+		<ol>
+			<li>Enter your public key for Bitcoin or Ethereum.</li>
+			<li>View your wallet balance and current value.</li>
+			<li>Enjoy secure and private wallet monitoring.</li>
+		</ol>
+	</div>
 </section>
 
 <style>
@@ -38,33 +43,58 @@
 	}
 
 	h1 {
-		font-size: 2.5rem;
+		font-size: 1.5rem;
 		font-weight: bold;
-		margin-bottom: var(--size-4);
+		margin: var(--size-4);
 	}
 
-	p {
+	li {
+		font: var(--text-lg);
+	}
+	.cta-button {
+		display: inline-block;
+		padding: 0.75rem 1.5rem;
 		font-size: 1.25rem;
-		margin-bottom: var(--size-6);
+		color: #000;
+		background-color: var(--color-primary);
+		border: 1px solid var(--color-primary);
+		border-radius: 5px;
+		text-decoration: none;
+		cursor: pointer;
+		transition: background-color 0.3s ease;
 	}
 
-	.features {
-		margin-bottom: var(--size-6);
+	.cta-button:hover {
+		color: var(--color-primary);
+		background-color: var(--color-bg-1);
+		border: 1px solid var(--color-white);
 	}
 
-	.features h2 {
-		font-size: 2rem;
-		font-weight: bold;
-		margin-bottom: var(--size-4);
-	}
-
-	.features ul {
-		list-style: none;
+	.text-cards {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr); /* Two columns by default */
+		gap: var(--size-4);
+		margin: 0;
 		padding: 0;
+		list-style: none;
+
+		@media screen and (max-width: 768px) {
+			grid-template-columns: 1fr; /* One column on small screens */
+		}
 	}
 
-	.features li {
-		font-size: 1.25rem;
-		margin-bottom: var(--size-2);
+	.text-cards li {
+		border: 1px solid #ddd; /* Example border */
+		padding: var(--size-4);
+		border-radius: var(--size-2);
+		font: var(--text-lg);
+	}
+
+	.text-cards li strong {
+		font-size: var(--text-xl);
+		display: block;
+		font-size: 1.2em; /* Larger font size for the title */
+		margin-bottom: var(--size-2); /* Space below the title */
+		color: var(--color-primary); /* Title color */
 	}
 </style>
