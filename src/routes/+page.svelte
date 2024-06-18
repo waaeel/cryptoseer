@@ -3,10 +3,17 @@
 </script>
 
 <section class="content">
-	<header>
-		<h1>No account needed – start monitoring your wallets instantly.</h1>
-		<a class="cta-button" href="/app">Get Started</a>
-	</header>
+	<div class="head">
+		<div class="headline">
+			<h1>No account needed – start monitoring your wallets instantly.</h1>
+			<a class="cta-button" href="/app">Get Started</a>
+		</div>
+		<div class="video-wrapper">
+			<video src={video} type="video/webm" height="350px" autoplay loop muted>
+				<track kind="captions" />
+			</video>
+		</div>
+	</div>
 
 	<ul class="text-cards">
 		<li>
@@ -30,7 +37,7 @@
 		</li>
 	</ul>
 
-	<div class="info">
+	<div class="info center">
 		<div class="info-item">
 			<h1>How It Works</h1>
 			<ol>
@@ -39,41 +46,39 @@
 				<li>Enjoy secure and private wallet monitoring.</li>
 			</ol>
 		</div>
-		<div class="video">
-			<video src={video} type="video/webm" autoplay loop>
-				<track kind="captions" />
-			</video>
-		</div>
 	</div>
 </section>
 
 <style>
-	.info {
-		margin-top: var(--size-4);
-		display: grid;
-		grid-template-columns: repeat(2, 1fr); /* Two columns by default */
-		gap: var(--size-4);
+	.video-wrapper {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
 
-		@media screen and (max-width: 768px) {
-			grid-template-columns: 1fr; /* One column on small screens */
-		}
-	}
-	video {
-		border-radius: 5px;
-	}
-	header {
-		text-align: center;
+	.head {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: var(--size-4);
 		margin-bottom: var(--size-4);
 	}
-	h1 {
-		font-size: 1.5rem;
-		font-weight: bold;
-		margin: var(--size-4);
+
+	video {
+		border-radius: var(--size-2);
 	}
-	li {
-		font: var(--text-lg);
+
+	@media screen and (max-width: 768px) {
+		.head {
+			grid-template-columns: 1fr;
+		}
+		video {
+			height: auto;
+			border-radius: var(--size-2);
+		}
 	}
+
 	.cta-button {
+		margin-inline: var(--size-4);
 		display: inline-block;
 		padding: 0.75rem 1.5rem;
 		font-size: 1.25rem;
@@ -84,12 +89,60 @@
 		text-decoration: none;
 		cursor: pointer;
 		transition: background-color 0.3s ease;
+
+		@media screen and (max-width: 768px) {
+			display: flex;
+			justify-content: center;
+			align-self: center;
+		}
 	}
+
 	.cta-button:hover {
 		color: #000;
 		background-color: var(--color-primary);
 		border: 1px solid var(--color-primary);
 	}
+
+	.info {
+		margin-top: var(--size-4);
+		padding: var(--size-4);
+	}
+	.info-item {
+		text-align: center;
+	}
+
+	.info-item h1 {
+		font-size: 2rem;
+		font-weight: bold;
+		margin-bottom: var(--size-2);
+	}
+
+	.info-item ol {
+		list-style: decimal;
+		padding-left: var(--size-4);
+		text-align: left;
+	}
+
+	.info-item li {
+		margin-bottom: var(--size-2);
+		font-size: 1.125rem;
+	}
+
+	header {
+		text-align: center;
+		margin-bottom: var(--size-4);
+	}
+
+	h1 {
+		font-size: 1.5rem;
+		font-weight: bold;
+		margin: var(--size-4);
+	}
+
+	li {
+		font: var(--text-lg);
+	}
+
 	.text-cards {
 		display: grid;
 		grid-template-columns: repeat(2, 1fr); /* Two columns by default */
@@ -102,12 +155,14 @@
 			grid-template-columns: 1fr; /* One column on small screens */
 		}
 	}
+
 	.text-cards li {
 		border: 1px solid #ddd; /* Example border */
 		padding: var(--size-4);
 		border-radius: var(--size-2);
 		font: var(--text-lg);
 	}
+
 	.text-cards li strong {
 		font-size: var(--text-xl);
 		display: block;
