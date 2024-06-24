@@ -1,7 +1,65 @@
-export const formatter = new Intl.NumberFormat('en-US', {
+export const formatter = new Intl.NumberFormat('de-AT', {
 	style: 'currency',
 	currency: 'EUR'
 });
+
+export const get_btc_price = async () => {
+	const eur = await fetch(
+		`https://min-api.cryptocompare.com/data/generateAvg?fsym=BTC&tsym=EUR&e=kraken`
+	)
+		.then(async (response) => {
+			const data = await response.json();
+			return data.RAW.PRICE;
+		})
+		.catch(function (err) {
+			console.log('Unable to fetch -', err);
+		});
+
+	const usd = await fetch(
+		`https://min-api.cryptocompare.com/data/generateAvg?fsym=BTC&tsym=USD&e=kraken`
+	)
+		.then(async (response) => {
+			const data = await response.json();
+			return data.RAW.PRICE;
+		})
+		.catch(function (err) {
+			console.log('Unable to fetch -', err);
+		});
+
+	return {
+		eur: formatter.format(Math.floor(eur)),
+		usd: formatter.format(Math.floor(usd))
+	};
+};
+
+export const get_eth_price = async () => {
+	const eur = await fetch(
+		`https://min-api.cryptocompare.com/data/generateAvg?fsym=ETH&tsym=EUR&e=kraken`
+	)
+		.then(async (response) => {
+			const data = await response.json();
+			return data.RAW.PRICE;
+		})
+		.catch(function (err) {
+			console.log('Unable to fetch -', err);
+		});
+
+	const usd = await fetch(
+		`https://min-api.cryptocompare.com/data/generateAvg?fsym=ETH&tsym=USD&e=kraken`
+	)
+		.then(async (response) => {
+			const data = await response.json();
+			return data.RAW.PRICE;
+		})
+		.catch(function (err) {
+			console.log('Unable to fetch -', err);
+		});
+
+	return {
+		eur: formatter.format(Math.floor(eur)),
+		usd: formatter.format(Math.floor(usd))
+	};
+};
 
 export const btc = async (addr) => {
 	const price = await fetch(
