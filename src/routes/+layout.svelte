@@ -10,7 +10,7 @@
 </script>
 
 <main>
-	<Header />
+	<Header prices={data.prices} />
 	{#if $navigating}
 		<div class="spinner">
 			<Spinner />
