@@ -1,12 +1,10 @@
 <script>
-	import { getRandomEmoji } from '$lib/utils/random_emoji';
 </script>
 
 <footer>
 	<nav>
 		<ul>
 			<li><a href="/privacy">* Privacy</a></li>
-			<!-- 			<li><a href="/">🏠 Home</a></li> -->
 			<li><a href="/legal">* Legal Notice</a></li>
 		</ul>
 	</nav>
