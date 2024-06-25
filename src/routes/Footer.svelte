@@ -6,8 +6,10 @@
 		<ul>
 			<li><a href="/privacy">* Privacy</a></li>
 			<li><a href="/legal">* Legal Notice</a></li>
+			<li><a href="mailto:support@pulus.xyz">📧 support@pulus.xyz</a></li>
 		</ul>
 	</nav>
+
 	<small>
 		Made with ❤️ by <a href="https://dinweldik.com" target="_blank" class="brand">dinweldik.com</a>
 	</small>
