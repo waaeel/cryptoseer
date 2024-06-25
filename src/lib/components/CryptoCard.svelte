@@ -78,19 +78,17 @@
 	.card-footer {
 		display: flex;
 		justify-content: space-between;
-		padding-top: var(--size-2);
 	}
 	button {
-		border: none;
-		border-radius: 8px;
-		padding: 10px 20px;
-		font-size: 1rem;
+		padding: var(--size-1) var(--size-2);
+		border-radius: var(--size-1);
+		border: 1px solid var(--color-white);
 		cursor: pointer;
 		font-weight: bold;
 		transition: background-color 0.3s ease;
 	}
 	.remove {
-		background-color: var(--color-error-700);
+		background-color: var(--color-error-300);
 		color: white;
 	}
 	.open {
