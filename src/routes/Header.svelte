@@ -22,7 +22,7 @@
 
 <style lang="postcss">
 	.wallet {
-		padding: var(--size-2) var(--size-4);
+		padding: var(--size-1) var(--size-2);
 		border-radius: var(--size-1);
 		border: 1px solid var(--color-black);
 	}
