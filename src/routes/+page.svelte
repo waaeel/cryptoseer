@@ -35,6 +35,14 @@
 			<strong>💼 Comprehensive</strong>
 			<p>Supports multiple Bitcoin and Ethereum wallets.</p>
 		</li>
+		<li class="coming-soon">
+			<strong>🧾 Transaction History</strong>
+			<p>Access detailed transaction history and get real-time notifications. Coming soon!</p>
+		</li>
+		<li class="coming-soon">
+			<strong>🌐 Multi-Currency Support</strong>
+			<p>Switch between multiple fiat currencies like EUR and USD easily. Coming soon!</p>
+		</li>
 	</ul>
 
 	<div class="info center">
@@ -82,6 +90,7 @@
 		display: inline-block;
 		padding: 0.75rem 1.5rem;
 		font-size: 1.25rem;
+		font-weight: bold;
 		color: var(--color-primary);
 		background-color: var(--color-bg-1);
 		border: 1px solid var(--color-white);
@@ -169,5 +178,10 @@
 		font-size: 1.2em; /* Larger font size for the title */
 		margin-bottom: var(--size-2); /* Space below the title */
 		color: var(--color-primary); /* Title color */
+	}
+
+	.coming-soon {
+		opacity: 0.6;
+		font-style: italic;
 	}
 </style>
