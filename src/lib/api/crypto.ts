@@ -3,7 +3,7 @@ export const formatter = new Intl.NumberFormat('de-AT', {
 	currency: 'EUR'
 });
 
-export const get_btc_price = async () => {
+export const get_btc_price = async (fetch) => {
 	const eur = await fetch(
 		`https://min-api.cryptocompare.com/data/generateAvg?fsym=BTC&tsym=EUR&e=kraken`
 	)
@@ -32,7 +32,7 @@ export const get_btc_price = async () => {
 	};
 };
 
-export const get_eth_price = async () => {
+export const get_eth_price = async (fetch) => {
 	const eur = await fetch(
 		`https://min-api.cryptocompare.com/data/generateAvg?fsym=ETH&tsym=EUR&e=kraken`
 	)
