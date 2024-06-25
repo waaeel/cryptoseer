@@ -13,8 +13,8 @@
 	{#if prices}
 		<nav>
 			<ul>
-				<Chip text={`Ξ/${prices.eth_price.eur}`} />
 				<Chip text={`₿/${prices.btc_price.eur}`} />
+				<Chip text={`Ξ/${prices.eth_price.eur}`} />
 			</ul>
 		</nav>
 	{/if}
