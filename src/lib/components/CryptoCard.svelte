@@ -12,18 +12,22 @@
 			);
 			// TODO refactor this
 			window.location.reload();
-		} else {
-			// do nothing
 		}
+	};
+
+	const open = (addr) => () => {
+		window.location.href =
+			crypto.type === 'eth' ? `/app/details/eth/${addr}` : `/app/details/btc/${addr}`;
 	};
 </script>
 
+<!-- svelte-ignore a11y-click-events-have-key-events -->
+<!-- svelte-ignore a11y-no-static-element-interactions -->
 <div class="card">
 	<div class="card-content">
 		<div class="balance">
 			<h1><strong>{crypto.type}</strong>{crypto.balance}</h1>
 			<h2>{crypto.eur}</h2>
-			<button class="remove-icon" on:click={remove}>remove</button>
 		</div>
 		<div class="info">
 			<a
@@ -36,6 +40,10 @@
 			</a>
 		</div>
 	</div>
+	<div class="card-footer">
+		<button class="remove" on:click={remove}>remove</button>
+		<!-- <button class="open" on:click={open(crypto.addr)}>details</button> -->
+	</div>
 </div>
 
 <style>
@@ -47,37 +55,46 @@
 		border: 1px solid var(--color-primary);
 		padding: var(--size-4);
 		border-radius: var(--size-2);
-	}
-	.remove-icon {
-		inherits: none;
-		cursor: pointer;
-		background-color: var(--color-primary);
-		font: var(--text-md);
-		width: 50%;
-		border-radius: var(--size-2);
+		display: grid;
+		grid-template-rows: auto auto;
+		box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 	}
 	.card-content {
 		display: grid;
 		grid-template-columns: 2fr 1fr;
-		cursor: pointer;
 	}
 	.balance {
 		text-transform: uppercase;
 		display: grid;
 		grid-template-columns: 1fr;
 		align-self: flex-start;
-		& h1 {
-			font-weight: normal;
-		}
 	}
 	.info {
 		overflow: hidden;
 		display: -webkit-box;
 		-webkit-line-clamp: 3;
 		-webkit-box-orient: vertical;
-
-		& h2 {
-			font-weight: normal;
-		}
+	}
+	.card-footer {
+		display: flex;
+		justify-content: space-between;
+		padding-top: var(--size-2);
+	}
+	button {
+		border: none;
+		border-radius: 8px;
+		padding: 10px 20px;
+		font-size: 1rem;
+		cursor: pointer;
+		font-weight: bold;
+		transition: background-color 0.3s ease;
+	}
+	.remove {
+		background-color: var(--color-error-700);
+		color: white;
+	}
+	.open {
+		background-color: var(--color-primary);
+		color: black;
 	}
 </style>
