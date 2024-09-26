@@ -27,7 +27,7 @@
 		border: 1px solid var(--color-black);
 	}
 	.external-apps {
-		padding: var(--size-2) var(--size-content-px);
+		padding: var(--size-2);
 		display: flex;
 		flex-direction: row;
 		justify-content: flex-end;
