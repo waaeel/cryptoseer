@@ -16,6 +16,50 @@
 	const addAddrs = async () => {
 		goto('/app/addWallet');
 	};
+
+	const exportWallets = () => {
+		const data = localStorage.getItem('wallets');
+		const blob = new Blob([data], { type: 'application/json' });
+		const url = URL.createObjectURL(blob);
+		const a = document.createElement('a');
+		a.href = url;
+		a.download = 'pulus-wallets_export_' + new Date().toISOString() + '.json';
+		a.click();
+		URL.revokeObjectURL(url);
+	};
+
+	const importWallets = () => {
+		const input = document.createElement('input');
+		input.type = 'file';
+		input.accept = 'application/json';
+		input.onchange = (e) => {
+			const file = e.target.files[0];
+			const reader = new FileReader();
+			reader.onload = (event) => {
+				try {
+					const importedWallets = JSON.parse(event.target.result);
+					const currentWallets = localStorage.getItem('wallets') 
+						? JSON.parse(localStorage.getItem('wallets')) 
+						: [];
+					
+					// Merge existing and imported wallets, avoiding duplicates
+					const mergedWallets = [...currentWallets];
+					importedWallets.forEach(wallet => {
+						if (!mergedWallets.some(w => w.addr === wallet.addr && w.type === wallet.type)) {
+							mergedWallets.push(wallet);
+						}
+					});
+
+					localStorage.setItem('wallets', JSON.stringify(mergedWallets));
+					userAddrList = mergedWallets;
+				} catch (error) {
+					console.error('Invalid file format');
+				}
+			};
+			reader.readAsText(file);
+		};
+		input.click();
+	};
 </script>
 
 <section class="content">
@@ -52,6 +96,10 @@
 	{#if userAddrList.length === 0}
 		<Placeholder /> <!-- Use the Placeholder component -->
 	{/if}
+	<div class="backup-buttons">
+		<button on:click={exportWallets}>⬇ export wallets</button>
+		<button on:click={importWallets}>⬆ import wallets</button>
+	</div>
 </section>
 
 <style>
@@ -88,5 +136,12 @@
 		@media screen and (max-width: 768px) {
 			grid-template-columns: 1fr; /* One column on small screens */
 		}
+	}
+
+	.backup-buttons {
+		display: flex;
+		justify-content: center;
+		gap: var(--size-4);
+		margin-top: var(--size-4);
 	}
 </style>

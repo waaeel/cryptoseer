@@ -35,6 +35,10 @@
 			<strong>💼 Comprehensive</strong>
 			<p>Supports multiple Bitcoin and Ethereum wallets.</p>
 		</li>
+		<li>
+			<strong>💾 Backup & Restore</strong>
+			<p>Export and import your wallet lists easily to keep your monitoring setup safe and portable.</p>
+		</li>
 		<li class="coming-soon">
 			<strong>🧾 Transaction History</strong>
 			<p>Access detailed transaction history and get real-time notifications. Coming soon!</p>
