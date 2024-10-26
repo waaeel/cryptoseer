@@ -1,7 +1,7 @@
 import { mdsvex } from 'mdsvex';
 import mdsvexConfig from './mdsvex.config.js';
 import preprocess from 'svelte-preprocess';
-import adapter from '@sveltejs/adapter-vercel';
+import adapter from '@sveltejs/adapter-node';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -17,9 +17,7 @@ const config = {
 	],
 
 	kit: {
-		adapter: adapter({
-			regions: ['arn1']
-		})
+		adapter: adapter()
 
 		// remove this if you don't want prerendering
 		/* 	prerender: {
