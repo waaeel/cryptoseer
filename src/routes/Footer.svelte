@@ -6,6 +6,7 @@
 		<ul>
 			<li><a href="/privacy">* Privacy</a></li>
 			<li><a href="/legal">* Legal Notice</a></li>
+			<li><a href="/blog">* Blog</a></li>
 			<li><a href="mailto:support@pulus.xyz">📧 support@pulus.xyz</a></li>
 		</ul>
 	</nav>

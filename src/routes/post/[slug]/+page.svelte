@@ -9,7 +9,7 @@
 
 	// generated open-graph image for sharing on social media.
 	// see https://og-image.vercel.app/ for more options.
-	const ogImage = `https://og-image.vercel.app/**${encodeURIComponent(
+	const ogImage = `https://og-image.vercel.app/${encodeURIComponent(
 		data.post.title
 	)}**?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fhyper-color-logo.svg`;
 
@@ -71,15 +71,35 @@
 </section>
 
 <style lang="postcss">
-	.root {
-		display: grid;
-		grid-template-columns: 1fr;
+	:global(.post-content img) {
+		width: 350px;
+		display: block;
+		margin: auto;
+		margin-block: var(--size-12);
+
+		@media (max-width: 768px) {
+			min-width: 100%;
+		}
 	}
 
-	@media screen and (min-width: 1024px) {
-		.root {
-			grid-template-columns: 1fr 42rem 1fr;
-		}
+	:global(.post-content p) {
+		margin-block: var(--size-4);
+	}
+
+	:global(.post-content a) {
+		text-decoration: none;
+	}
+
+	:global(.post-content h2) {
+		color: var(--color-primary);
+	}
+
+	:global(.post-content h3) {
+		margin-block: var(--size-4);
+	}
+
+	section {
+		font: var(--text-xl);
 	}
 
 	.post-header {
@@ -92,25 +112,17 @@
 		font-size: 2.25rem; /* text-4xl */
 		font-weight: bold; /* font-bold */
 		letter-spacing: -0.025em; /* tracking-tight */
-
-		/* Screen size adjustments */
-		@media (min-width: 640px) {
-			font-size: 3rem; /* sm:text-5xl */
-		}
+		text-align: center;
 	}
 
 	.post-date {
 		font-size: 0.875rem; /* text-sm */
 
-		@media (min-width: 640px) {
+		@media (max-width: 640px) {
 			font-size: 1rem; /* sm:text-base */
 		}
 	}
 
-	.post-content {
-		line-height: 1.65;
-		/* You may need to add more styles depending on the typography settings you want. */
-	}
 	.container {
 		padding: 2rem 0; /* py-8 */
 	}
@@ -140,7 +152,7 @@
 		margin: 0 auto; /* mx-auto */
 	}
 
-	@media (min-width: 768px) {
+	@media (max-width: 768px) {
 		/* md: */
 		.social-links {
 			order: 2;

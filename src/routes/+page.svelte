@@ -53,7 +53,7 @@
 		<div class="info-item">
 			<h1>How It Works</h1>
 			<ol>
-				<li>Enter your public adress for Bitcoin or Ethereum.</li>
+				<li>Enter your wallet adress for Bitcoin or Ethereum.</li>
 				<li>View your wallet balance and current value.</li>
 				<li>Enjoy secure and private wallet monitoring.</li>
 			</ol>
