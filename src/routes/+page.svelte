@@ -18,7 +18,7 @@
 	<ul class="text-cards">
 		<li>
 			<strong>🔒 Privacy First</strong>
-			<p>No account required, and your public keys are stored locally in your browser.</p>
+			<p>No account required, and your wallet addresses are stored locally in your browser.</p>
 		</li>
 		<li>
 			<strong>👁️ Watch-Only</strong>

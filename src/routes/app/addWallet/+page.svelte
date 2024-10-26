@@ -67,7 +67,7 @@
 			title="crypto"
 		/>
 		<input type="hidden" bind:value={selectedCrypto} name="type" />
-		<Dinput type="text" name="addr" placeholder="public key" />
+		<Dinput type="text" name="addr" placeholder="wallet address" />
 		{#if publicKeyError}
 			<p style="color: red;">{publicKeyError}</p>
 		{/if}

@@ -14,7 +14,7 @@
 		Made with ❤️ by <a href="https://dinweldik.com" target="_blank" class="brand">dinweldik.com</a>
 	</small>
 	<small>
-		Your public keys are send to third party APIs like
+		Your wallet addresses are send to third party APIs like
 		<a href="https://blockchain.info" target="_blank">blockchain.info</a>,
 		<a href="https://ethplorer.io" target="_blank">ethplorer.io</a>,
 		<a href="https://etherscan.io" target="_blank">etherscan.io</a> and

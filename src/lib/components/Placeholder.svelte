@@ -4,7 +4,7 @@
 
 <div class="placeholder">
 	<h2 class="title">No Wallets Added</h2>
-	<p>Add a public key to start tracking your crypto assets.</p>
+	<p>Add a wallet address to start tracking your crypto assets.</p>
 </div>
 
 <style>
