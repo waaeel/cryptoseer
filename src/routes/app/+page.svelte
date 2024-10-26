@@ -20,7 +20,7 @@
 
 <section class="content">
 	<Fab icon="+" action={async () => addAddrs()}>
-		<p>add <strong>public</strong> key</p>
+		<p>add <strong>adress</strong></p>
 	</Fab>
 	{#if userAddrList.length > 0}
 		{#await Promise.all([...userAddrList
