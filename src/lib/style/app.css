@@ -55,3 +55,45 @@ section.content {
 h1 {
 	color: var(--color-primary-500);
 }
+
+button {
+	font: var(--text-md);
+	padding: var(--size-3) var(--size-4);
+	border: none;
+	border-radius: var(--radius-default);
+	cursor: pointer;
+	transition: all 0.3s ease;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	background-color: var(--color-primary-500);
+}
+
+button:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button:disabled {
+	background-color: var(--color-gray-400) !important;
+	cursor: not-allowed;
+}
+
+button.secondary {
+	background-color: var(--color-success);
+	color: var(--color-white);
+}
+
+button.secondary:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button.danger {
+	background-color: var(--color-red-400);
+	color: var(--color-white);
+}
+
+button.danger:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
