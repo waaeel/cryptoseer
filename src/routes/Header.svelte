@@ -12,10 +12,12 @@
 
 	{#if prices}
 		<nav>
-			<ul>
-				<Chip text={`₿/${prices.btc_price.eur}`} />
-				<Chip text={`Ξ/${prices.eth_price.eur}`} />
-			</ul>
+			{#if prices.btc_price.eur && prices.eth_price.eur}
+				<ul>
+					<Chip text={`₿/${prices.btc_price.eur}`} />
+					<Chip text={`Ξ/${prices.eth_price.eur}`} />
+				</ul>
+			{/if}
 		</nav>
 	{/if}
 </header>

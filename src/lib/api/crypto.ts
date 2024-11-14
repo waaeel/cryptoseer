@@ -71,6 +71,7 @@ export const btc = async (addr) => {
 		})
 		.catch(function (err) {
 			console.log('Unable to fetch -', err);
+			return null;
 		});
 
 	return fetch(`https://blockchain.info/q/addressbalance/${addr}`)
@@ -100,6 +101,7 @@ export const eth = async (addr) => {
 		})
 		.catch(function (err) {
 			console.log('Unable to fetch -', err);
+			return null;
 		});
 	return fetch(`https://api.ethplorer.io/getAddressInfo/${addr}/?apiKey=freekey`)
 		.then(async (response) => {
