@@ -1,5 +1,13 @@
 # CryptoSeer
 
+<p align="center">
+  <video src="src/lib/assets/video.webm" controls muted loop playsinline></video>
+</p>
+
+<p align="center">
+  <a href="src/lib/assets/video.webm"><strong>Watch demo video directly</strong></a>
+</p>
+
 CryptoSeer is a privacy-first, watch-only cryptocurrency dashboard built with SvelteKit. It lets users monitor Bitcoin and Ethereum wallet balances and estimated fiat value without ever entering private keys.
 
 This project was built to prioritize three goals:
